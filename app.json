@@ -1,31 +1,29 @@
 {
   "expo": {
-    "name": "nlw-setup-mobile",
-    "slug": "nlw-setup-mobile",
-    "version": "1.0.0",
-    "orientation": "portrait",
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#09090A",
+        "foregroundImage": "./assets/adaptive-icon.png"
+      }
+    },
+    "assetBundlePatterns": ["**/*"],
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    },
+    "name": "nlw-setup-mobile",
+    "orientation": "portrait",
+    "slug": "nlw-setup-mobile",
     "splash": {
+      "backgroundColor": "#09090A",
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "contain"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
+    "userInterfaceStyle": "light",
+    "version": "1.0.0",
     "web": {
       "favicon": "./assets/favicon.png"
     }

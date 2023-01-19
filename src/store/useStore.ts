@@ -12,7 +12,7 @@ type State = {
 };
 
 type Actions = {
-  fetchHabits: () => void;
+  setHabits: (habits: Habit[]) => void;
   setLoadingHabits: (loading: boolean) => void;
   setErrorHabits: (error: unknown) => void;
 };
@@ -25,18 +25,10 @@ export const useStore = create(
         isLoading: false,
         isError: '',
       },
-      fetchHabits: async () => {
-        get().setLoadingHabits(true);
-        try {
-          const habits = await getHabits();
-          set((state) => {
-            state.habits.data = habits;
-          });
-        } catch (error) {
-          get().setErrorHabits(error);
-        } finally {
-          get().setLoadingHabits(false);
-        }
+      setHabits: (habits) => {
+        set((state) => {
+          state.habits.data = habits;
+        });
       },
       setLoadingHabits: (loading) => {
         set((state) => {

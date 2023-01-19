@@ -1,55 +1,28 @@
-import { Box, Center, VStack, Text } from 'native-base';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { View, Text } from 'react-native';
 import { useSharedValue } from 'react-native-reanimated';
+import { useQuery } from 'react-query';
+import { Loading } from '../components/loading';
+import { getHabits } from '../services/api';
 import { useStore } from '../store/useStore';
 
 export const Home = () => {
-  const progress = useSharedValue(0);
+  // const habitsQuery = useQuery('getHabits', getHabits)
 
-  const { fetchHabits, habits } = useStore((state) => ({
+  const { setHabits, habits, setIsError, setIsLoading } = useStore((state) => ({
     habits: state.habits,
-    fetchHabits: state.fetchHabits,
+    setHabits: state.setHabits,
+    setIsLoading: state.setLoadingHabits,
+    setIsError: state.setErrorHabits,
   }));
 
-  useEffect(() => {
-    fetchHabits();
-  }, []);
-
-  console.log(habits);
-
-  if (habits.isLoading) {
-    return (
-      <VStack flex={1} justifyContent='center' alignItems={'center'}>
-        <Text color={'violet.700'}>Loading...</Text>
-      </VStack>
-    );
-  }
-
-  if (habits.isError) {
-    return (
-      <VStack flex={1} justifyContent='center' alignItems={'center'}>
-        <Text color={'violet.700'}>Error</Text>
-      </VStack>
-    );
-  }
-
   return (
-    <VStack
-      flex={1}
-      justifyContent='center'
-      alignItems={'center'}
-      bg={'dark.800'}
+    <Text
+      style={{
+        color: 'white',
+      }}
     >
-      {habits.data.map((habit) => (
-        <Box
-          key={habit.id}
-          bg={'violet.800'}
-          rounded='md'
-          width={24}
-          height={24}
-          display='flex'
-        />
-      ))}
-    </VStack>
+      Hello
+    </Text>
   );
 };
