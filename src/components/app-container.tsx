@@ -1,10 +1,10 @@
-import { SafeAreaView, View, StatusBar, StyleSheet } from 'react-native';
+import { View, StatusBar } from 'react-native';
 
 export const AppContainer: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   return (
-    <View style={styles.container}>
+    <View className={'flex flex-1 bg-background px-8 pt-16'}>
       <StatusBar
         barStyle='light-content'
         animated
@@ -15,12 +15,3 @@ export const AppContainer: React.FC<{
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#0A0A0A',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
