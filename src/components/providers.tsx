@@ -8,9 +8,11 @@ import {
   Inter_800ExtraBold,
 } from '@expo-google-fonts/inter';
 
+import { NavigationContainer } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Loading } from './loading';
 import { AppContainer } from './app-container';
+import { Host } from 'react-native-portalize';
 
 const queryClient = new QueryClient();
 
@@ -29,7 +31,9 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <AppContainer>{children}</AppContainer>
+        <NavigationContainer>
+          <Host>{children}</Host>
+        </NavigationContainer>
       </GestureHandlerRootView>
     </QueryClientProvider>
   );

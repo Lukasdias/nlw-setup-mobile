@@ -4,7 +4,7 @@ export const AppContainer: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   return (
-    <View className={'flex flex-1 bg-background px-8 pt-16'}>
+    <View className={'flex flex-1 bg-background px-4 pt-20'}>
       <StatusBar
         barStyle='light-content'
         animated
